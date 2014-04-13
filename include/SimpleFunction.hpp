@@ -1,5 +1,5 @@
-#ifndef SIMPLE_FUNCTION_H_
-#define SIMPLE_FUNCTION_H_
+#ifndef SIMPLE_FUNCTION_HPP_
+#define SIMPLE_FUNCTION_HPP_
 
 #include "Utils.h"
 
@@ -71,6 +71,6 @@ int myStrchr(const char* str, const char c) {
   return count;
 }
 
-#endif  // SIMPLE_FUNCTION_H_
+#endif  // SIMPLE_FUNCTION_HPP_
 
 
