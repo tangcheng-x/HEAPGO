@@ -11,3 +11,5 @@ g++ -o bin/test-quick-sort-basic test/test-quick-sort-basic.cc \
 
 g++ -o bin/test-quick-sort-3way test/test-quick-sort-3way.cc \
   include/Sort.cc -lpthread -lgtest -Xlinker -zmuldefs
+
+g++ -o bin/test-max-sum test/test-max-sum.cc -lpthread -lgtest
