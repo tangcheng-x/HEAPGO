@@ -2,7 +2,7 @@
 #define SIMPLE_FUNCTION_HPP_
 
 #include "Utils.h"
-
+#include <limits>
 #define LETTER_NUM 26
 
 int myStrstr(const char* str, const char* subStr) {
@@ -69,6 +69,84 @@ int myStrchr(const char* str, const char c) {
     ++count;
   }
   return count;
+}
+
+// Find the member of the array which number is biger than half of array length
+int findNum(int arr[], int n) {
+  int can = -1;
+  int times = 0;
+  for (int i = 0; i < n; ++i) {
+    if (times == 0) {
+      can = arr[i];
+      times = 1;
+    } else {
+      if (can != arr[i]) {
+        --times;
+      } else {
+        ++times;
+      }
+    }
+  }
+  return can;
+}
+
+// Find the member of array which number is equal to the length / 2 of array
+int EqualToHalf(int arr[], int n) {
+  int can = -1;
+  int times = 0;
+  int e_times = 0;
+  for (int i = 0; i < n; ++i) {
+    if (arr[i] == arr[n-1])
+      ++e_times;
+    if (times == 0) {
+      can = arr[i];
+      times = 1;
+    } else if (arr[i] == can){
+      ++times;
+    } else {
+      --times;
+    }
+  }
+  if ((e_times + 1) == n / 2)
+    return arr[n-1];
+  else
+    return can;
+}
+
+bool strToInt(const char* str, int& ret) {
+  long long num = 0;
+  if (str == NULL)
+    return false;
+  const char* digit = str;
+
+  bool minus = false;
+  if (*digit == '+') {
+    ++digit;
+  } else if (*digit == '-') {
+    ++digit;
+    minus = true;
+  }
+
+  while (*digit != '\0') {
+    if (*digit >= '0' && *digit <= '9') {
+      num = num * 10 + (*digit - '0');
+
+      if (num > std::numeric_limits<int>::max()) {
+        return false;
+      }
+      ++digit;
+    }
+    else {
+      return false;
+    }
+  }
+
+  if (*digit == '\0') {
+    if (minus)
+      num = 0 - num;
+  }
+  ret = static_cast<int>(num);
+  return true;
 }
 
 #endif  // SIMPLE_FUNCTION_HPP_
