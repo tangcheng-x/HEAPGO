@@ -13,3 +13,8 @@ g++ -o bin/test-quick-sort-3way test/test-quick-sort-3way.cc \
   include/Sort.cc -lpthread -lgtest -Xlinker -zmuldefs
 
 g++ -o bin/test-max-sum test/test-max-sum.cc -lpthread -lgtest
+
+g++ -o bin/test-str-to-int test/test-str-to-int.cc -lpthread -lgtest
+
+g++ -o bin/test-factorial-template test/test-factorial-template.cc -lpthread \
+  -lgtest

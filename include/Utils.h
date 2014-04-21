@@ -52,4 +52,27 @@ void swap_int(int& a, int& b) {
   b = temp;
 }
 
+static const int M_INT_MAX = (int)((unsigned)~0 >> 1);
+static const int M_INT_MIN = -(int)((unsigned)~0 >> 1) - 1;
+static const int M_MAX_DIV = (int)((unsigned)~0 >> 1) / 10;
+static const int M_MIN_DIV = (int)((((unsigned)~0 >> 1) + 1) / 10);
+static const int M_MAX_R = (int)((unsigned)~0 >> 1) % 10;
+static const int M_MIN_R = (int)((((unsigned)~0 >> 1) + 1) % 10);
+
+
+static int isspace_(int x) {
+  if (x == ' ' || x == '\t' || x == '\f' ||
+      x == '\n' || x == '\r' || x == '\b')
+    return 1;
+  return 0;
+}
+
+
+static int isdigit_(int x) {
+  if ( x <= '9' && '0' <= x)
+    return 1;
+  return 0;
+}
+
+
 #endif  // UTILS_H_

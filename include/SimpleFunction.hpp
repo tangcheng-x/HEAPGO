@@ -113,42 +113,6 @@ int EqualToHalf(int arr[], int n) {
     return can;
 }
 
-bool strToInt(const char* str, int& ret) {
-  long long num = 0;
-  if (str == NULL)
-    return false;
-  const char* digit = str;
-
-  bool minus = false;
-  if (*digit == '+') {
-    ++digit;
-  } else if (*digit == '-') {
-    ++digit;
-    minus = true;
-  }
-
-  while (*digit != '\0') {
-    if (*digit >= '0' && *digit <= '9') {
-      num = num * 10 + (*digit - '0');
-
-      if (num > std::numeric_limits<int>::max()) {
-        return false;
-      }
-      ++digit;
-    }
-    else {
-      return false;
-    }
-  }
-
-  if (*digit == '\0') {
-    if (minus)
-      num = 0 - num;
-  }
-  ret = static_cast<int>(num);
-  return true;
-}
-
 #endif  // SIMPLE_FUNCTION_HPP_
 
 

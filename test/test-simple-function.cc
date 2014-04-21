@@ -39,18 +39,6 @@ TEST(testFindNum, inArray) {
   EXPECT_EQ(3, findNum(a, 11));
 }
 
-TEST(testStrToInt, getValue) {
-  const char* str = "-123456";
-  int num = 0;
-  EXPECT_EQ(true, strToInt(str,num));
-  EXPECT_EQ(-123456, num);
-}
-
-TEST(testStrInt, notGet) {
-  const char* str1 = "123a8";
-  int num = 0;
-  EXPECT_EQ(false, strToInt(str1, num));
-}
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
