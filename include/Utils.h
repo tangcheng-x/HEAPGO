@@ -17,6 +17,11 @@
   assert(exp)
 #endif
 
+#ifndef CHECK_EQ
+#define CHECK_EQ(exp1, exp2) \
+  assert(exp1 == exp2)
+#endif
+
 #define PRINT_AND_EXIT(ARGS_LIST)  \
   do { printf ARGS_LIST; exit(EXIT_FAILURE); } while (0)
 
@@ -43,8 +48,15 @@
 #define DEBUG_STDOUT(x)
 #endif
 
+
+
 #define LOG_OUT(args...) \
   fprintf(stdout, args)
+
+#define DISALLOW_COPY_AND_ASSIGN(TypeName) \
+  TypeName(const TypeName&);               \
+  void operator=(const TypeName&)
+
 
 void swap_int(int& a, int& b) {
   int temp(a);
@@ -68,11 +80,18 @@ static int isspace_(int x) {
 }
 
 
+
 static int isdigit_(int x) {
   if ( x <= '9' && '0' <= x)
     return 1;
   return 0;
 }
+
+template <typename T>
+inline void USE(T) { }
+
+const int kMaxInt = 0x7FFFFFFF;
+const int kMinInt = -kMaxInt - 1;
 
 
 #endif  // UTILS_H_
