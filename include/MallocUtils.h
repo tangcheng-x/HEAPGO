@@ -90,7 +90,6 @@ inline void SLL_Push(void** list, void* element) {
 inline void* SLL_Pop(void** list) {
   void* ret = *list;
   *list = SLL_Next(*list);
-<<<<<<< HEAD
   return ret;
 }
 
