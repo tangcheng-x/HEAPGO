@@ -52,7 +52,6 @@ typedef DWORD pthread_t
 #endif
 
 
-
 // Get the free block next to the |t|, and the |t| is a free block too
 //+-------------+
 //| t |         |
@@ -91,6 +90,7 @@ inline void SLL_Push(void** list, void* element) {
 inline void* SLL_Pop(void** list) {
   void* ret = *list;
   *list = SLL_Next(*list);
+<<<<<<< HEAD
   return ret;
 }
 
